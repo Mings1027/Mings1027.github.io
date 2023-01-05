@@ -7,7 +7,7 @@ tags:
     - [blog]
 
 toc: true
-toc_sticky: false
+toc_sticky: true
 author_profile: false
 sidebar:
     nav: "docs"

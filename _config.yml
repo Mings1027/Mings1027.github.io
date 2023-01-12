@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "public static GameObject mings"
+title                    : "public static Mings mings"
 title_separator          : "|"
 subtitle                 : "slow and steady wins the race" # site tagline that appears below site title in masthead
 name                     : "Min Gyun Seok"
-description              : "평생 배움"
+description              : "Unity"
 url                      : "https://Mings1027.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "Mings1027/Mings1027.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Mings"
   avatar           : "assets/images/IMG_6660.jpeg"
-  bio              : "평생 배우자"
+  bio              : "인생은 배움의 연속 아니겠습니까"
   location         : "South Korea"
   email            : "mings1027@gmail.com"
   links:

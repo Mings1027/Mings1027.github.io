@@ -48,6 +48,9 @@ ZSH_THEME= “apple“
 ```
 brew install zsh-syntax-highlighting
 ```
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 글자를 하이라이팅 해준다 맞는 단어는 초록색 없거나 틀린 단어는 빨간색으로 스펠링 틀린걸 바로 체크할 수 있어서 유용하게 사용하고 있다.
 
 ![terminal2](https://user-images.githubusercontent.com/100500113/210172459-31b75c1f-7283-4cea-b033-0b7af41c9be0.png)
@@ -55,6 +58,9 @@ brew install zsh-syntax-highlighting
 ## 2. zsh-autosuggestions
 ```
 brew install zsh-autosuggestions
+```
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 내가 자주 사용하는 명령어나 파일 이름 등을 제안해준다. 
 
@@ -64,6 +70,21 @@ brew install zsh-autosuggestions
 ```
 brew install autojump
 ```
+```
+git clone git://github.com/wting/autojump.git
+```
 사용법은 간단하다. j + 디렉토리명
 
 ![terminal3](https://user-images.githubusercontent.com/100500113/210172501-1d3775a9-e138-486c-b82a-e097b1a64028.png)
+
+## 4. 적용
+
+open ~/.zshrc 로 파일 열어서 밑에 theme과 plugins 설정해준다.
+
+```
+ZSH_THEME="apple"
+plugins=(git
+zsh-autosuggestions
+zsh-syntax-highlighting
+autojump)
+```

@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: ""
-url: "https://mings1027.github.io"
+url: ""
 
 # THEME-SPECIFIC CONFIGURATION
 title: "public abstract class Mings1027 : MonoBehaviour"                                    # site's title

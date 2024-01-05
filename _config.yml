@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
-baseurl: "/Type-on-Strap"
-url: "https://sylhare.github.io"
+baseurl: ""
+url: "https://mings1027.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
 title: "public abstract class Mings1027 : MonoBehaviour"                                    # site's title

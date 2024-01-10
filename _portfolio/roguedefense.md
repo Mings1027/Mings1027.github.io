@@ -203,3 +203,12 @@ if (!isConnected || _tileConnectionIndex != null && _tileConnectionIndex.Length 
 그래서 이런경우 길을 하나 더 만들어줍니다.
 
 이 때 길이가 둘 다 3인 경우가 생길 수 있습니다. 그러나 앞의 조건 isConnected로 걸러지기 때문에 길이가 2인경우만 고려하면 됩니다.
+
+<script src="https://utteranc.es/client.js"
+        repo="Mings1027/Mings1027.github.io"
+        issue-term="pathname"
+        label="utterances"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -34,8 +34,9 @@ comments:
   disqus_shortname:                                     # Your discus shortname for comments
   cusdis_app_id:                                        # Your cusdis data-app-id
   utterances:                                           # Enable by filling below information. For more info, go to https://utteranc.es
-    repo:                                               # your public comments repository (e.g. owner/repo)
-    issue-term:                                         # Issue term (e.g. "comment" consider issues with this word in the title as comments)
+    repo: "Mings1027/Mings1027.github.io"                                               # your public comments repository (e.g. owner/repo)
+    issue-term: "pathname"                                        # Issue term (e.g. "comment" consider issues with this word in the title as comments)
+    theme: "github-dark"
 
 # PAGINATION
 paginate: 5

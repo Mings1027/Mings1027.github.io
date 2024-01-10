@@ -126,7 +126,7 @@ Change these variables in `_config.yml`:
 title: My Jekyll Blog                 # Name of website
 avatar: assets/img/avatar.png         # Path of avatar image, to be displayed in the theme's header
 description: My blog posts            # Short description, primarily used by search engines
-favicon: assets/favicon.ico           # Icon displayed in the tab
+favicon: assets/img/favicons/rogueDefense20.png           # Icon displayed in the tab
 color_theme: auto                     # color theme auto, dark or light
 ```
 

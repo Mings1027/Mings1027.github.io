@@ -6,7 +6,7 @@ url: "https://mings1027.github.io"
 title: "public abstract class Mings1027 : MonoBehaviour"                                    # site's title
 description: "A website with blog posts and pages"      # used by search engines
 avatar: assets/img/triangle.png                         # Empty for no avatar in navbar
-favicon: assets/favicon.ico                             # Icon displayed in the tab
+favicon: assets/img/favicons/rogueDefense20.png                             # Icon displayed in the tab
 
 # Header and footer text
 header_text: Self-Development  # Change Blog header text

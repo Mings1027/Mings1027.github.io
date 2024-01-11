@@ -17,35 +17,38 @@ date: January 2024
 ## 주요 구현 사항
 
 ### 절차적 맵 생성
-
-[이 링크](https://github.com/Mings1027/UnityGame/blob/main/TowerDefense/Assets/Scripts/MapControl/MapManager.cs)로 해당 코드를 볼 수 있으며 
-각 타일은 [MapData](https://github.com/Mings1027/UnityGame/blob/main/TowerDefense/Assets/Scripts/MapControl/MapData.cs) 스크립트를 가지고 있습니다.
+타일 하나하나가 이어져서 하나의 큰맵이 만들어지는 방식이기 때문에 두개의 스크립트가 필요합니다.  
+[MapManager](https://github.com/Mings1027/UnityGame/blob/main/TowerDefense/Assets/Scripts/MapControl/MapManager.cs) 스크립트로 맵이 만들어지는데 각 타일들의 정보를 필요로 하므로  
+[MapData](https://github.com/Mings1027/UnityGame/blob/main/TowerDefense/Assets/Scripts/MapControl/MapData.cs) 스크립트가 필요합니다.
 
 ## 맵이 생성되는 과정
+아래 사진은 실제 인게임화면을 캡쳐하여 만든 gif 입니다.
 {% include aligner.html images="portfolio/GenerateMap.gif" column=1 %}
 
 1. 
 <span style="font-size: 23px; color: white">
-초기 타일의 중심에서 사방으로 길이 난 방향에 새로운 타일이 생성될 수 있도록 버튼을 설치합니다.
+초기 타일의 중심에서 네 방향을 검사해서 길이 난 방향에 새로운 타일이 생성될 수 있도록 버튼을 설치합니다.
 
 2.
 <span style="font-size: 23px; color: white">
-버튼을 누르면 그 위치에 새 타일이 만들어지고 새 타일의 중심에서 사방으로 이웃한 타일이 있는지 확인합니다.
+버튼이 새 타일이 만들어질 위치이며 버튼을 누르면 그 위치를 중심으로 네 방향에 이웃한 타일이 있는지 확인합니다.
 
 3.
 <span style="font-size: 23px; color: white">
-이웃타일이 있고 이웃타일의 길 방향이 새 타일을 향하는지 확인하고 향한다면 새 타일과 이웃타일을 이어줍니다.
+이웃타일의 길 방향이 새 타일을 향하는지 확인하고 향한다면 새 타일과 이웃타일을 이어줍니다.
 
 4.
 <span style="font-size: 23px; color: white">
-이웃타일이 없다면 정해진 확률에 의해 그 방향으로 길이 만들어집니다.
+이웃타일이 없는 곳에는 정해진 규칙에 의해 길을 만들지 말지를 선택하게 됩니다.
 
 5.
 <span style="font-size: 23px; color: white">
-만약 사방에 다 이웃 타일이 있는데 이웃타일들의 길 중 단 하나만 새 타일을 향하고 있다면 막힌 길 이므로 단방향 타일을 만들고 그 이웃타일과 이어줍니다.
+만약 다음타일이 만들어질 위치가 사방이 막힌 곳이라면 단방향 타일을 만듭니다.  
+(이 부분은 아래에서 더 자세히 설명하겠습니다.)
 
 ```c#
 
+    //사방으로 이웃한 타일이 있는지 확인합니다.
     private void CheckNeighborMap()
     {
         var checkDirCount = _checkDirection.Length;
@@ -68,6 +71,7 @@ date: January 2024
         }
     }
 
+    //이웃한 타일이 만들어질 타일의 중심으로 이어져있는지를 확인합니다.
     private void CheckConnectedDirection()
     {
         var neighborMapCount = _neighborMapArray.Length;
@@ -91,6 +95,7 @@ date: January 2024
         }
     }
 
+    //랜덤하게 길을 만들면서 예외처리를 합니다.
     private void AddRandomDirection()
     {
         _tileConnectionIndex = null;
@@ -140,16 +145,17 @@ date: January 2024
         }
     }
 ```
-아래 두 변수로 타일의 모양이 결정되기 때문에 가장 중요한 변수들이라고 말할 수 있습니다.  <br />
+위 코드가 맵을 만들때 가장 중요한 역할을 하는 코드이고 아래 두 변수로 만들어지기 때문에 변수에 대한 설명을 적겠습니다.  <br />
 
 <span style="font-size: 23px;">
 _tileConnectionIndex  :  새 타일의 중심에서 길이 이어진 곳의 인덱스를 저장합니다.    
 _emptyTileIndex  :  새 타일의 중심에서 이웃타일이 없는 곳의 인덱스를 저장합니다.  
-- 인덱스는 0 1 2 3 중에 선택되며 순서대로 back, forward, left, right 방향을 의미합니다.
+- 인덱스는 0 1 2 3 중에 선택되며 타일을 타일을 중심으로 back, forward, left, right 방향을 의미합니다.
+
+{% include aligner.html images="portfolio/TileIndex.png" %}
 
 ## 예외 처리
 위 과정으로 타일들이 이어지다 보면 예외가 발생할 수 있기 때문에 추가로 길을 뚫는 과정이 필요합니다.  
-설명을 적기 전에 두개의 변수에 대한 설명을 먼저 적겠습니다.
 
 ### 1.단방향 타일로 인해 닫힌 맵이 만들어집니다.  
 
@@ -202,7 +208,9 @@ if (!isConnected || _tileConnectionIndex != null && _tileConnectionIndex.Length 
 결국 두개씩 고르는 경우의 수 입니다. 이런경우들이 맵을 닫히게 할 가능성이 있는 경우들 입니다.  
 그래서 이런경우 길을 하나 더 만들어줍니다.
 
-이 때 길이가 둘 다 3인 경우가 생길 수 있습니다. 그러나 앞의 조건 isConnected로 걸러지기 때문에 길이가 2인경우만 고려하면 됩니다.
+이 때 길이가 1 혹은 3인 경우는 고려하지 않아도 됩니다. 왜냐하면
+1 인경우 사방이 막혔다면 위의 설명처럼 포탈타일이 만들어질거고 사방이 막히지 않았다면 길이 만들어질것입니다.
+3의 경우 앞의 조건 isConnected로 걸러지기 때문에 길이가 2인경우만 고려하면 됩니다.
 
 <script src="https://utteranc.es/client.js"
         repo="Mings1027/Mings1027.github.io"

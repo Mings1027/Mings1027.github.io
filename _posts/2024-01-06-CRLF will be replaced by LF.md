@@ -2,6 +2,7 @@
 layout: post
 title: Git 커밋 시 CRLF will be replaced by LF가 뜨는 경우
 feature-img : "assets/img/post-img/beddingCat.jpg"
+date : January 6th, 2024
 ---
 
 맥, 윈도우 개발자가 협업할 때 발생하는 문제라고 한다.

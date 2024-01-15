@@ -1,14 +1,11 @@
 ---
 layout: post
-title: [유니티 싱글톤] Unity MonoBehaviour Singleton
+title: 유니티 디자인 패턴 Unity Singleton
 feature-img : "assets/img/post-img/cat.jpg.avif"
 date: January 15th, 2024
-tags: [Unity, Singleton]
+tags: [Unity, Admob]
 ---
 
-
-
-## 1. Singleton
 
 흔히 쓰이는 싱글톤일거라고 생각한다. 그러나 내가 생각못했던 부분이 있었다. 만약 게임 시작때가 아닌 진행도중에 새로 만들어질 경우 인스펙터에서 할당한것들은 아무것도 없는채로 만들어지기 때문에 이 싱글톤을 사용하는 클래스의 초기화 부분은 전부 코드로 해주어야한다.
 
@@ -23,8 +20,7 @@ tags: [Unity, Singleton]
 ```c#
 using UnityEngine;
 
-namespace GameControl
-{
+
     [DisallowMultipleComponent]
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -72,4 +68,4 @@ namespace GameControl
             _applicationQuit = true;
         }
     }
-}```
+```

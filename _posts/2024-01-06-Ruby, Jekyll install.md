@@ -2,6 +2,7 @@
 layout: post
 title: 맥에서 Ruby 와 Jekyll 설치하고 로컬 환경에서 포스트 미리 확인하는 방법
 feature-img : "assets/img/post-img/cameraCat.jpg"
+date : January 6th, 2024
 ---
 
 

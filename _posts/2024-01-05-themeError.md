@@ -2,6 +2,7 @@
 layout: post
 title: 블로그 테마 적용 오류
 feature-img : "assets/img/post-img/cat_surprised_look.jpg"
+date : January 5th, 2024
 ---
 
 {% include aligner.html images="post-img/cat_surprised_look.jpg" column=1 %}

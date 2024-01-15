@@ -1,7 +1,7 @@
 ---
-layout: Privacy
-title: Privacy
-permalink: /Privacy/
+layout: page
+title : Privacy
+permalink: /privacy/
 position: 5
 ---
 

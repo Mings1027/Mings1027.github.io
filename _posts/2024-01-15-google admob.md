@@ -123,7 +123,7 @@ namespace GoogleMobileAdmob
 RewardedAdEvents() 함수는 
 [이 링크](https://developers.google.com/admob/unity/rewarded?hl=ko#ios)로 들어가면 설명이 있습니다.
 
-코드는 복붙해서 광고 아이디만 맞는걸로 채워서 그대로 사용해도 됩니다.
+코드는 복붙해서 광고 아이디만 맞는걸로 채워서 그대로 사용해도 됩니다. 위 코드의 Singleton 부분은
 
 아래는 테스트 id 입니다.
 

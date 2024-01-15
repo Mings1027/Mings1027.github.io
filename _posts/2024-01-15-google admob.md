@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Unity 애드몹 광고 붙이기
-feature-img : "assets/img/portfolio/roguedefense.png"
+feature-img : "assets/img/post-img/cat.jpg.avif"
 date: January 15th, 2024
 tags: [Unity, Admob]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Unity iOS 게임 업데이트 버전 올리기
-feature-img : "assets/img/portfolio/roguedefense.png"
+feature-img : "assets/img/post-img/cat.jpg"
 date: January 15th, 2024
 ---
 

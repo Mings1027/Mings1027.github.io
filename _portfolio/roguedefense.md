@@ -3,7 +3,6 @@ layout: post
 title: Rogue Defense
 feature-img: "assets/img/portfolio/roguedefenseingame.png"
 img: "assets/img/portfolio/roguedefense.png"
-date: January 2024
 ---
 
 ![image]({{ page.img | relative_url }})

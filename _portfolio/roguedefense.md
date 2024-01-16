@@ -179,11 +179,11 @@ if (_tileConnectionIndex is {Length: 1})
 {% include aligner.html images="portfolio/CloseMap2.png" %}
 
 아래는 이해를 돕기위해 임의로 맵을 제작하였습니다. 빨간 점이 처음 만들어진 타일의 위치입니다.  
-왼쪽사진처럼 만들어질 수 있는 타일이 단 하나남았다면 그리고 그 타일이 오른쪽 사진처럼 만들어진다면 맵이 닫혀버립니다.
+타일이 만들어지는 순서와는 무관합니다. 왼쪽사진처럼 만들어질 수 있는 타일이 단 하나남았다면 그리고 그 타일이 오른쪽 사진처럼 만들어진다면 맵이 닫혀버립니다.
 {% include aligner.html images="portfolio/TestMap.png,portfolio/TestMap1.png" %}
 그렇기 때문에 아래의 과정이 필요하게 됩니다.  
 ```c#
-//타일이 없는곳에 연결이 한번도 안되었을때 혹은 연결된 인덱스와 타일이 없는곳의 인덱스 길이가 같으면서 정반대일 때 닫힐 수 있으므로 길 하나를 뚫어줌
+//타일이 없는곳에 연결이 한번도 안되었을때 혹은 연결된 인덱스와 타일이 없는곳의 인덱스 길이가 같을 때 닫힐 수 있으므로 길 하나를 뚫어줌
 if (!isConnected || _tileConnectionIndex != null && _tileConnectionIndex.Length == _emptyTileIndex.Length)
 {
     var ranIndex = Random.Range(0, _emptyTileIndex.Length);
@@ -203,19 +203,19 @@ if (!isConnected || _tileConnectionIndex != null && _tileConnectionIndex.Length 
 |         1 2         |       0 3      |
 |         1 3         |       0 2      |
 |         2 3         |       0 1      |
-
-결국 두개씩 고르는 경우의 수 입니다. 이런경우들이 맵을 닫히게 할 가능성이 있는 경우들 입니다.  
+{% include aligner.html images="portfolio/TileIndex.png" %}
+이 때 두 변수의 관계를 그림으로 보면 대칭을 이룬다는것을 알 수 있습니다. 이런경우들이 맵을 닫히게 할 가능성이 있는 경우들 입니다.  
 그래서 이런경우 길을 하나 더 만들어줍니다.
 
 이 때 길이가 1 혹은 3인 경우는 고려하지 않아도 됩니다. 왜냐하면
-1 인경우 사방이 막혔다면 위의 설명처럼 포탈타일이 만들어질거고 사방이 막히지 않았다면 길이 만들어질것입니다.
+1 인경우는 사방이 막힌 경우이기 때문에 위의 과정에서 단방향 타일이 만들어질거고 사방이 막히지 않았다면 길이 만들어질것입니다.
 3의 경우 앞의 조건 isConnected로 걸러지기 때문에 길이가 2인경우만 고려하면 됩니다.
 
-<script src="https://utteranc.es/client.js"
+<!-- <script src="https://utteranc.es/client.js"
         repo="Mings1027/Mings1027.github.io"
         issue-term="pathname"
         label="utterances"
         theme="github-dark"
         crossorigin="anonymous"
         async>
-</script>
+</script> -->
